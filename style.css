@@ -1,0 +1,100 @@
+:root {
+    --slide-width: 420px;
+    --slide-margin: 20px;
+    --transition-speed: 0.4s;
+    --primary-color: #1a1a1a;
+    --accent-color: #ff6b6b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f0f0f0;
+    overflow-x: hidden;
+}
+
+.slider-section {
+    padding: 2rem 0;
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.slider-container {
+    overflow: hidden;
+    position: relative;
+    padding: 1rem;
+}
+
+.slider {
+    display: flex;
+    transition: transform var(--transition-speed) ease-out;
+    will-change: transform;
+}
+
+.slide {
+    flex: 0 0 var(--slide-width);
+    margin-right: var(--slide-margin);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slide:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 1rem;
+    pointer-events: none;
+}
+
+.control-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    pointer-events: all;
+    transition: background 0.3s ease;
+}
+
+.control-btn:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --slide-width: 300px;
+    }
+}
